@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 PORT=2497
-while getopts ":p:" OPT; do
-  case $OPT in
+while getopts ":p:" opt; do
+  case "$opt" in
     p)
       PORT=$((OPTARG))
       ;;

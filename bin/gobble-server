@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+PORT=2497
+while getopts ":p:" OPT; do
+  case $OPT in
+    p)
+      PORT=$((OPTARG))
+      ;;
+  esac
+done
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+bundle exec rackup "${DIR}/../config.ru" -p $PORT

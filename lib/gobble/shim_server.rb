@@ -33,7 +33,7 @@ module Gobble
         enqueue host, JSON.parse(body)
         response_with_queue queues[host]
       when 'DELETE'
-        self.queues[req.host] = []
+        self.queues[host] = []
         response_with_queue queues[host]
       end
     end

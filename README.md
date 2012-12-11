@@ -1,17 +1,17 @@
-# Cram
+# Gobble
 
-Cram is a fake web service handler for integration testing.
+Gobble is a fake web service handler for integration testing.
 
-You need Cram if you have a site that makes calls to web services with a client that you can't mock or stub out, eg. something that isn't able to be tested with Rack::Test.
+You need Gobble if you have a site that makes calls to web services with a client that you can't mock or stub out, eg. something that isn't able to be tested with Rack::Test.
 
-(Cram currently sees use with Cucumber and Capybara, testing a legacy PHP app.)
+(Gobble currently sees use with Cucumber and Capybara, testing a legacy PHP app.)
 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'cram'
+    gem 'gobble'
 
 And then execute:
 
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install cram
+    $ gem install gobble
 
 
 ## Usage
@@ -27,7 +27,7 @@ Or install it yourself as:
 TODO: Needs fleshing out.
 
 ```
-service = Cram::Service.new 'http://localhost:9999'
+service = Gobble::Remote.new 'http://localhost:9999'
 service.respond_to 'GET', '/products', :with => {
   :content_type => :json
   :status => 200,
@@ -39,7 +39,7 @@ service.respond_to 'GET', '/products', :with => {
 ```
 
 ```
-service  = Cram::Service.new 'http://orders.10.0.0.95.xip.io:9999'
+service  = Gobble::Remote.new 'http://orders.10.0.0.95.xip.io:9999'
 response = service.create_response(
   :content_type => :json
   :status => 200
